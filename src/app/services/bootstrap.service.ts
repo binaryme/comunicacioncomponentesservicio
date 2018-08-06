@@ -11,6 +11,9 @@ export class BootstrapService {
   constructor() {}
   toggle() {
     // hago un emit de eventos a mi componente modal, para en base a cada stream de eventos ejecutra
+    if (this.change.closed === true) {
+      this.change = new EventEmitter();
+    }
     this.change.emit(this.isOpen);
   }
 }

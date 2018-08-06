@@ -11,6 +11,11 @@ import { ModalComponent } from './components/modal/modal.component';
 import { BootstrapService } from './services/bootstrap.service';
 import { CarteraComponent } from './components/cajera/cartera/cartera.component';
 import { LoginComponent } from './pages/login/login.component';
+// firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
+import { MesasComponent } from './components/mesas/mesas.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +25,16 @@ import { LoginComponent } from './pages/login/login.component';
     NavbarComponent,
     ModalComponent,
     CarteraComponent,
-    LoginComponent
+    LoginComponent,
+    MesasComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule.forRoot()],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule.forRoot(),
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase)
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
